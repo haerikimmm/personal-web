@@ -4,5 +4,8 @@ import { defineConfig } from 'astro/config';
 // https://astro.build/config
 export default defineConfig({
   base: '/portfolio',
-  trailingSlash: 'always'
+  trailingSlash: 'always',
+  build: {
+    assets: 'assets'
+  }
 });
