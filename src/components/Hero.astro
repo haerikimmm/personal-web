@@ -6,7 +6,7 @@
 				<!-- LEFT: Intro -->
 				<div class="hero-tagline">
 					<h1><span class="typewriter"></span></h1>
-					<p class="intro-sub">Studying Human-Computer Interaction (HCI) in Make Lab, KAIST. Previously a product designer and UX researcher @MegazoneCloud.</p>
+					<p class="intro-sub hidden">Studying Human-Computer Interaction (HCI) in Make Lab, KAIST. Previously a product designer and UX researcher @MegazoneCloud.</p>
 				</div>
 
 				<!-- RIGHT: Image -->
@@ -26,6 +26,7 @@
 	const speed = 50;
 	
 	const h1 = document.querySelector('.typewriter');
+	const sub = document.querySelector('.intro-sub');
 	let i = 0;
 	
 	function typeWriter() {
@@ -33,6 +34,9 @@
 			h1.textContent += text.charAt(i);
 			i++;
 			setTimeout(typeWriter, speed);
+		} else {
+			// Show subtitle after typing finishes
+			sub?.classList.remove('hidden');
 		}
 	}
 	
@@ -82,6 +86,16 @@
 		font-weight: 400;
 		color: var(--color-text-secondary);
 		margin: 1.5rem 0 0 0;
+		opacity: 0;
+		transition: opacity 0.5s ease;
+	}
+
+	.intro-sub.hidden {
+		opacity: 0;
+	}
+
+	.intro-sub:not(.hidden) {
+		opacity: 1;
 	}
 
 	/* --- RIGHT COLUMN: IMAGE --- */
