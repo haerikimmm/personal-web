@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+import PasswordGate from '../../components/PasswordGate.astro';
 ---
 
 <Layout title="Callavo | Haeri Kim">
@@ -9,18 +10,23 @@ import Footer from '../../components/Footer.astro';
 	<main class="project-page">
 		<div class="container">
 			<a href="/portfolio/" class="back-link reveal">← Back to projects</a>
-			<div class="project-info reveal">
-				<h1>Callavo</h1>
-				<p class="description">Smart networking for B2B Sales</p>
-			</div>
-			<div class="meta-grid reveal">
-				<div class="meta-item"><span class="meta-label">Client</span><span class="meta-value">Callavo</span></div>
-				<div class="meta-item"><span class="meta-label">Role</span><span class="meta-value">Product Designer</span></div>
-				<div class="meta-item"><span class="meta-label">Duration</span><span class="meta-value">—</span></div>
-				<div class="meta-item"><span class="meta-label">Work Scope</span><span class="meta-value">Mobile App, MVP</span></div>
-			</div>
-			<div class="project-content reveal">
-				<p class="project-description">[Project details coming soon]</p>
+
+			<PasswordGate projectTitle="Callavo" />
+
+			<div id="protected-content" class="protected-content">
+				<div class="project-info reveal">
+					<h1>Callavo</h1>
+					<p class="description">Smart networking for B2B Sales</p>
+				</div>
+				<div class="meta-grid reveal">
+					<div class="meta-item"><span class="meta-label">Client</span><span class="meta-value">Callavo</span></div>
+					<div class="meta-item"><span class="meta-label">Role</span><span class="meta-value">Product Designer</span></div>
+					<div class="meta-item"><span class="meta-label">Duration</span><span class="meta-value">—</span></div>
+					<div class="meta-item"><span class="meta-label">Work Scope</span><span class="meta-value">Mobile App, MVP</span></div>
+				</div>
+				<div class="project-content reveal">
+					<p class="project-description">[Project details coming soon]</p>
+				</div>
 			</div>
 		</div>
 	</main>
@@ -30,6 +36,7 @@ import Footer from '../../components/Footer.astro';
 <style>
 	.project-page { padding-top: 7rem; padding-bottom: 4rem; }
 	.back-link { display: inline-block; font-size: 0.85rem; color: var(--color-text-secondary); margin-bottom: 2.5rem; }
+	.protected-content { display: none; }
 	.project-info { margin-bottom: 3rem; }
 	.project-info h1 { font-family: var(--font); font-size: 2.5rem; font-weight: 700; color: var(--color-text); letter-spacing: -0.03em; margin-bottom: 0.75rem; }
 	.description { font-size: 1.1rem; color: var(--color-text-secondary); line-height: 1.6; }
